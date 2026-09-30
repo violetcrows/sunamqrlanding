@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="SunamQR — সম্পূর্ণ Feature List, Smart QR-powered Review Management Platform">
+<title>SunamQR — Complete Feature List</title>
+<style>
+:root{
+  --bg:#f7f8fc; --surface:#fff; --ink:#172033; --muted:#667085;
+  --primary:#5b4cf6; --primary2:#7c3aed; --accent:#14b8a6;
+  --line:#e7e9f0; --soft:#f1efff; --dark:#111827;
+  --shadow:0 18px 50px rgba(23,32,51,.08); --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans Bengali","Noto Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.75}
+a{color:inherit;text-decoration:none}
+.container{width:min(1180px,calc(100% - 36px));margin:auto}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(247,248,252,.86);backdrop-filter:blur(16px);border-bottom:1px solid rgba(231,233,240,.8)}
+.nav{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em}
+.logo{width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--primary),var(--primary2));display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:0 8px 20px rgba(91,76,246,.3)}
+.navlinks{display:flex;gap:22px;color:var(--muted);font-size:14px}
+.navlinks a:hover{color:var(--primary)}
+.hero{padding:78px 0 55px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:50px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:7px 12px;border-radius:999px;background:var(--soft);color:var(--primary);font-size:13px;font-weight:800;margin-bottom:18px}
+h1{font-size:clamp(42px,6vw,72px);line-height:1.05;letter-spacing:-.055em;margin:0 0 22px}
+.gradient{background:linear-gradient(90deg,var(--primary),var(--primary2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{font-size:18px;color:var(--muted);max-width:650px;margin:0 0 26px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:11px 17px;border-radius:12px;font-weight:750;border:1px solid var(--line);background:#fff}
+.btn.primary{background:var(--dark);color:#fff;border-color:var(--dark)}
+.funnel-card{background:#111827;border-radius:28px;padding:24px;box-shadow:0 28px 70px rgba(17,24,39,.22);position:relative}
+.funnel-card:before{content:"";position:absolute;inset:-20px -15px auto auto;width:180px;height:180px;border-radius:50%;background:rgba(124,58,237,.18);filter:blur(8px)}
+.funnel-title{color:#fff;font-weight:800;font-size:18px;margin-bottom:18px;position:relative}
+.funnel{display:grid;gap:11px;position:relative}
+.step{display:flex;align-items:center;gap:12px;padding:13px 14px;border:1px solid rgba(255,255,255,.1);border-radius:15px;background:rgba(255,255,255,.06);color:#fff}
+.step .num{width:30px;height:30px;display:grid;place-items:center;border-radius:10px;background:rgba(255,255,255,.1);font-weight:800}
+.step small{display:block;color:#aeb7ca;font-size:12px}
+.branch{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.branch .step{font-size:13px}
+.section{padding:55px 0}
+.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}
+.section-head h2{font-size:32px;letter-spacing:-.035em;line-height:1.2;margin:0}
+.section-head p{color:var(--muted);max-width:650px;margin:0}
+.card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:23px;box-shadow:0 7px 30px rgba(23,32,51,.04)}
+.card .icon{width:42px;height:42px;border-radius:13px;background:var(--soft);display:grid;place-items:center;margin-bottom:14px;font-size:20px}
+.card h3{margin:0 0 7px;font-size:17px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.notice{background:linear-gradient(135deg,#171b2c,#292452);color:#fff;border-radius:28px;padding:30px;box-shadow:var(--shadow)}
+.notice p{color:#d6d9e7;margin:8px 0 0}
+.table-wrap{background:#fff;border:1px solid var(--line);border-radius:20px;overflow:auto;box-shadow:0 8px 30px rgba(23,32,51,.04)}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th,td{text-align:left;vertical-align:top;padding:15px 17px;border-bottom:1px solid var(--line);font-size:14px}
+th{background:#f8f8fc;color:#4b5568;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+td:first-child{font-weight:800;width:28%;color:#263149}
+tr:last-child td{border-bottom:0}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;background:#eefbf8;color:#087f6d;font-size:11px;font-weight:800}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:18px;padding:20px}
+.kpi strong{font-size:27px;display:block}
+.kpi span{font-size:13px;color:var(--muted)}
+.arch{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.arch-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:22px}
+.arch-card h3{margin-top:0}
+.arch-list{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.arch-list li{padding:10px 12px;background:#f8f8fb;border-radius:11px;font-size:14px}
+.security{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.security div{background:#fff;border:1px solid var(--line);padding:17px;border-radius:16px}
+.security b{display:block;margin-bottom:4px}
+.security span{font-size:13px;color:var(--muted)}
+.data-model{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.relationship{background:#fff;border:1px solid var(--line);border-radius:16px;padding:15px;font-size:14px}
+.cta{padding:60px 0 80px}
+.cta-inner{background:linear-gradient(135deg,var(--primary),var(--primary2));border-radius:30px;color:#fff;padding:42px;text-align:center}
+.cta-inner h2{margin:0;font-size:34px}
+.cta-inner p{max-width:700px;margin:10px auto 0;color:#ecebff}
+footer{padding:30px 0 50px;color:var(--muted);font-size:13px;text-align:center}
+.toc{display:flex;gap:8px;overflow:auto;padding:12px 0 2px}
+.toc a{white-space:nowrap;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 11px;font-size:12px;color:#5b6475}
+@media(max-width:900px){
+ .hero-grid,.arch{grid-template-columns:1fr}.card-grid{grid-template-columns:1fr 1fr}.kpi-grid{grid-template-columns:1fr 1fr}.data-model{grid-template-columns:1fr 1fr}.navlinks{display:none}
+}
+@media(max-width:600px){
+ .container{width:min(100% - 24px,1180px)}.hero{padding-top:45px}.hero p{font-size:16px}.section{padding:38px 0}
+ .card-grid,.security,.data-model{grid-template-columns:1fr}.kpi-grid{grid-template-columns:1fr 1fr}
+ .section-head{display:block}.section-head h2{font-size:27px;margin-bottom:7px}
+ .funnel-card{padding:17px}.cta-inner{padding:30px 20px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container nav">
+    <a class="brand" href="#top"><span class="logo">S</span><span>SunamQR</span></a>
+    <nav class="navlinks">
+      <a href="#funnel">Funnel</a><a href="#features">Features</a><a href="#dashboard">Dashboard</a>
+      <a href="#admin">Admin</a><a href="#security">Security</a><a href="#architecture">Architecture</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">✦ Smart QR-powered Review Management</div>
+      <h1>Customer Scan থেকে<br><span class="gradient">Better Reviews</span></h1>
+      <p>SunamQR একটি Smart QR-based Review Management Platform। ভালো rating দেওয়া customer-কে public review platform-এ পাঠানো হয়, আর কম rating-এর feedback private ভাবে business owner-এর কাছে আসে।</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#features">সব Features দেখুন ↓</a>
+        <a class="btn" href="#architecture">Technical Architecture</a>
+      </div>
+    </div>
+
+    <div class="funnel-card" id="funnel">
+      <div class="funnel-title">🎯 Smart Review Funnel</div>
+      <div class="funnel">
+        <div class="step"><span class="num">1</span><div>📱 Customer QR Scan<small>Business location থেকে funnel শুরু</small></div></div>
+        <div class="step"><span class="num">2</span><div>⭐ Experience Rating<small>1–5 Star rating</small></div></div>
+        <div class="branch">
+          <div class="step"><span class="num">3A</span><div>🔗 Public Review<small>Google / Facebook / অন্যান্য</small></div></div>
+          <div class="step"><span class="num">3B</span><div>📝 Private Feedback<small>Owner-এর inbox-এ</small></div></div>
+        </div>
+        <div class="step"><span class="num">4</span><div>✅ Verification / Resolution<small>Review verify বা complaint resolve</small></div></div>
+        <div class="step"><span class="num">5</span><div>🎁 Reward Unlocked<small>Configured offer অনুযায়ী</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="toc">
+    <a href="#features">Customer Funnel</a><a href="#dashboard">Dashboard</a><a href="#complaints">Complaints</a>
+    <a href="#destinations">Destinations</a><a href="#settings">Settings</a><a href="#history">History</a>
+    <a href="#admin">Super Admin</a><a href="#languages">Languages</a><a href="#security">Security</a><a href="#architecture">Architecture</a>
+  </div>
+</div>
+
+<section class="section" id="features">
+<div class="container">
+  <div class="section-head">
+    <div><h2>01. Customer-Facing QR Funnel</h2><span class="badge">Public Scanner</span></div>
+    <p>Customer-এর পুরো review journey—QR scan থেকে rating, review redirect, private feedback এবং verification পর্যন্ত।</p>
+  </div>
+  <div class="table-wrap"><table><thead><tr><th>Feature</th><th>সহজ বাংলায়</th></tr></thead><tbody>
+  <tr><td>QR Code Scan Entry</td><td>Business location-এ রাখা unique QR code scan করলে review process শুরু হবে।</td></tr>
+  <tr><td>Star Rating Screen</td><td>Customer 1–5 Star দিয়ে experience rate করতে পারবে। Screen mobile-optimized এবং prompt message customizable।</td></tr>
+  <tr><td>Smart Routing Engine</td><td>Threshold-এর সমান বা বেশি rating হলে public review platform-এ পাঠানো হবে; কম rating হলে private feedback নেওয়া হবে।</td></tr>
+  <tr><td>Multi-Platform Redirect</td><td>Google, Facebook, Yelp, TripAdvisor অথবা custom URL support করবে এবং platform-গুলোর মধ্যে automatic round-robin rotation করা যাবে।</td></tr>
+  <tr><td>Offer/Incentive System</td><td>Incentive review-এর আগে, পরে অথবা একেবারেই না দেখানোর option থাকবে।</td></tr>
+  <tr><td>Screenshot Verification</td><td>Customer posted review-এর screenshot upload করে reward claim করতে পারবে।</td></tr>
+  <tr><td>Review Chips</td><td>Pre-written review text এক tap-এ copy করার সুবিধা থাকবে।</td></tr>
+  <tr><td>Private Feedback Form</td><td>কম rating-এর customer issue category, feedback, optional screenshot ও contact information দিতে পারবে।</td></tr>
+  <tr><td>Lead Capture Form</td><td>Name, phone ও email collect করা যাবে এবং প্রতিটি field আলাদাভাবে configure করা যাবে।</td></tr>
+  <tr><td>Device Cooldown System</td><td>Server-side SHA-256 fingerprinting ব্যবহার করে একই customer-এর repeated entry নিয়ন্ত্রণ করা যাবে।</td></tr>
+  <tr><td>Rate Limiting</td><td>একটি device fingerprint থেকে 10 মিনিটে সর্বোচ্চ 30টি attempt।</td></tr>
+  <tr><td>Cooldown Re-entry</td><td>Unverified review নিয়ে customer ফিরে এলে তাকে block না করে verification step-এ পাঠানো হবে।</td></tr>
+  </tbody></table></div>
+</div>
+</section>
+
+<section class="section" id="dashboard">
+<div class="container">
+  <div class="section-head"><div><h2>02. Client Dashboard</h2><span class="badge">Business Owner</span></div><p>এক জায়গা থেকে reviews, scans, complaints, QR performance এবং value metrics দেখা যাবে।</p></div>
+  <div class="kpi-grid">
+    <div class="kpi"><strong>Scans</strong><span>Total QR scans</span></div>
+    <div class="kpi"><strong>Reviews</strong><span>Positive redirects & verified reviews</span></div>
+    <div class="kpi"><strong>Complaints</strong><span>Intercepted private feedback</span></div>
+    <div class="kpi"><strong>ROI</strong><span>Estimated value metrics</span></div>
+  </div>
+  <br>
+  <div class="card-grid">
+    <div class="card"><div class="icon">📈</div><h3>Funnel Analytics</h3><p>Total Scans, Rating Interactions, Positive Redirects, Verified Reviews ও Intercepted Complaints এক নজরে।</p></div>
+    <div class="card"><div class="icon">📊</div><h3>Platform Distribution</h3><p>Google, Facebook ইত্যাদি কোন platform-এ কত redirect হয়েছে তার visual breakdown।</p></div>
+    <div class="card"><div class="icon">🧩</div><h3>Issue Categories</h3><p>Private feedback-এর complaint category অনুযায়ী aggregated view।</p></div>
+    <div class="card"><div class="icon">🔥</div><h3>Peak Scan Heatmap</h3><p>কোন সময়ে customer সবচেয়ে বেশি scan করছে—timezone-aware analytics।</p></div>
+    <div class="card"><div class="icon">📍</div><h3>QR Touchpoints</h3><p>প্রতিটি physical QR location-এর scans, redirects ও complaints আলাদাভাবে দেখা যাবে।</p></div>
+    <div class="card"><div class="icon">💰</div><h3>ROI & Value</h3><p>Intercepted complaints, positive redirects ও configured values থেকে estimated business metrics।</p></div>
+    <div class="card"><div class="icon">🏢</div><h3>Multi-Business</h3><p>একই owner-এর একাধিক location একটি dropdown থেকে switch করা যাবে।</p></div>
+    <div class="card"><div class="icon">🖨️</div><h3>Printable Report</h3><p>Key metrics-এর print-ready summary report এক click-এ তৈরি করা যাবে।</p></div>
+    <div class="card"><div class="icon">⚡</div><h3>Cached Metrics</h3><p>Dashboard data 5 মিনিট cache করে fast loading নিশ্চিত করা হবে।</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="complaints">
+<div class="container">
+<div class="section-head"><div><h2>03. Complaint Inbox & Triage</h2><span class="badge">Private Resolution</span></div><p>Negative feedback public হওয়ার আগেই business team সেটি দেখতে, assign করতে এবং resolve করতে পারবে।</p></div>
+<div class="card-grid">
+  <div class="card"><div class="icon">📬</div><h3>Private Feedback Inbox</h3><p>সব intercepted negative review/feedback-এর dedicated inbox।</p></div>
+  <div class="card"><div class="icon">🔄</div><h3>Triage Workflow</h3><p><b>New → Contacted → Resolved</b> status workflow।</p></div>
+  <div class="card"><div class="icon">🗒️</div><h3>Manager Notes</h3><p>Team coordination-এর জন্য internal notes যোগ করা যাবে।</p></div>
+  <div class="card"><div class="icon">🔎</div><h3>Detail View</h3><p>Customer info, rating, issue category, feedback ও screenshots একসাথে দেখা যাবে।</p></div>
+  <div class="card"><div class="icon">✉️</div><h3>Email Alerts</h3><p>নতুন private complaint এলে business owner-কে automatic queued email notification।</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="destinations">
+<div class="container">
+<div class="section-head"><div><h2>04. Review Destination Management</h2><span class="badge">Flexible Routing</span></div><p>একটি business-এর একাধিক public review platform এবং তাদের routing priority manage করা যাবে।</p></div>
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>সহজ বাংলায়</th></tr></thead><tbody>
+<tr><td>Multi-Platform Destinations</td><td>Google, Facebook, Yelp, TripAdvisor বা custom URL—unlimited destinations যোগ করা যাবে।</td></tr>
+<tr><td>Priority-Based Routing</td><td>Destination priority সেট করা যাবে এবং customer যে platform আগে visit করেনি সেটি priority অনুযায়ী নির্বাচন হবে।</td></tr>
+<tr><td>Smart Round-Robin</td><td>Device সব destination visit করার পর rotation automatically reset হবে।</td></tr>
+<tr><td>Per-Destination Toggle</td><td>Destination delete না করেই enable/disable করা যাবে।</td></tr>
+<tr><td>Full CRUD</td><td>Create, edit, reorder এবং delete করা যাবে।</td></tr>
+</tbody></table></div>
+</div>
+</section>
+
+<section class="section" id="settings">
+<div class="container">
+<div class="section-head"><div><h2>05. Business Settings</h2><span class="badge">Fully Configurable</span></div><p>প্রতিটি business নিজের branding, review threshold, offer, lead collection ও review chips configure করতে পারবে।</p></div>
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>সহজ বাংলায়</th></tr></thead><tbody>
+<tr><td>Star Threshold</td><td>কত Star থেকে public review redirect হবে তা 1–5 এর মধ্যে সেট করা যাবে।</td></tr>
+<tr><td>Custom Prompt</td><td>“How was your experience?” ধরনের customer-facing prompt নিজের মতো লেখা যাবে।</td></tr>
+<tr><td>Offer Timing</td><td>Before review, after review অথবা none।</td></tr>
+<tr><td>Offer Headline & Description</td><td>Offer-এর title/description যেমন “Get a Free Coffee!” customize করা যাবে।</td></tr>
+<tr><td>Screenshot Verification</td><td>Proof-of-review step enable/disable করা যাবে।</td></tr>
+<tr><td>Verification & Reward Text</td><td>Verification screen-এর headline ও reward text customize করা যাবে।</td></tr>
+<tr><td>Lead Collection</td><td>Name, phone ও email independently toggle করা যাবে।</td></tr>
+<tr><td>Business Logo</td><td>Customer-facing funnel-এর জন্য custom logo upload করা যাবে।</td></tr>
+<tr><td>Average Ticket Size</td><td>ROI calculation-এর জন্য average transaction value সেট করা যাবে।</td></tr>
+<tr><td>Five-Star Value</td><td>5-star review-এর estimated monetary value সেট করা যাবে।</td></tr>
+<tr><td>Review Chips Management</td><td>Pre-written review snippets create/delete করা যাবে।</td></tr>
+</tbody></table></div>
+</div>
+</section>
+
+<section class="section" id="history">
+<div class="container">
+<div class="section-head"><div><h2>06. Review History & Export</h2><span class="badge">Business Owner</span></div><p>সব customer interaction search, filter, status update এবং CSV export করা যাবে।</p></div>
+<div class="card-grid">
+<div class="card"><div class="icon">📚</div><h3>Full Review Log</h3><p>Promoters ও detractors সহ সব customer interaction-এর paginated list।</p></div>
+<div class="card"><div class="icon">🔖</div><h3>Filter by Type</h3><p>Promoters ও Detractors আলাদা করে filter করা যাবে।</p></div>
+<div class="card"><div class="icon">🔍</div><h3>Search</h3><p>Name, email, phone বা feedback text দিয়ে search করা যাবে।</p></div>
+<div class="card"><div class="icon">📝</div><h3>Status Management</h3><p>List থেকেই New/Contacted/Resolved status ও manager notes update করা যাবে।</p></div>
+<div class="card"><div class="icon">📥</div><h3>CSV Export</h3><p>Leads ও reviews timezone-aware timestamps সহ CSV-তে export করা যাবে।</p></div>
+<div class="card"><div class="icon">⚡</div><h3>Cached Results</h3><p>Fast pagination-এর জন্য review list query cache করা হবে।</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="admin">
+<div class="container">
+<div class="section-head"><div><h2>07. Super Admin Panel</h2><span class="badge">Platform Control</span></div><p>পুরো platform, clients, businesses, subscriptions, QR touchpoints এবং reviews manage করার কেন্দ্রীয় panel।</p></div>
+<div class="table-wrap"><table><thead><tr><th>Feature</th><th>সহজ বাংলায়</th></tr></thead><tbody>
+<tr><td>Global Dashboard</td><td>Platform-wide clients, businesses, scans ও intercepted complaints-এর metrics।</td></tr>
+<tr><td>Client Management</td><td>Business client create, edit, activate/deactivate, delete, password ও default language manage করা যাবে।</td></tr>
+<tr><td>Client Search</td><td>Name অথবা email দিয়ে client search।</td></tr>
+<tr><td>Subscription & Package</td><td>Client edit screen থেকেই subscription package assign/revoke এবং expiry auto-calculate।</td></tr>
+<tr><td>Business Management</td><td>সব business-এর CRUD, logo upload এবং timezone configuration।</td></tr>
+<tr><td>QR Touchpoint Management</td><td>Front Desk, Table 1, Exit Door ইত্যাদির জন্য additional QR তৈরি/delete এবং per-QR analytics।</td></tr>
+<tr><td>QR Asset Generation</td><td>SVG + PNG QR auto-generate; Imagick না থাকলে external API fallback।</td></tr>
+<tr><td>Package Management</td><td>Package name, monthly/yearly billing, price ও maximum business limit manage করা যাবে।</td></tr>
+<tr><td>Global Review Viewer</td><td>সব business-এর সব review platform-wide দেখা যাবে।</td></tr>
+<tr><td>Cascade Delete</td><td>Client/business delete করলে related data Observers-এর মাধ্যমে securely cascade delete হবে।</td></tr>
+</tbody></table></div>
+</div>
+</section>
+
+<section class="section" id="languages">
+<div class="container">
+<div class="section-head"><div><h2>08. Multi-Language / i18n</h2><span class="badge">Localization</span></div><p>Database-driven translation system দিয়ে deployment ছাড়াই ভাষা ও UI translation update করা যাবে।</p></div>
+<div class="card-grid">
+<div class="card"><div class="icon">🌐</div><h3>Language Management</h3><p>Language code, name, RTL support, active ও default flag manage করা যাবে।</p></div>
+<div class="card"><div class="icon">🗂️</div><h3>Translation Grid</h3><p>Spreadsheet-style editor থেকে UI keys inline translate করা যাবে।</p></div>
+<div class="card"><div class="icon">✨</div><h3>Auto-Discovery</h3><p>সব translation key automatically discover করে grid-এ দেখানো হবে।</p></div>
+<div class="card"><div class="icon">🔗</div><h3>Locale Resolution</h3><p>URL → Session → User Preference → System Default → Config fallback।</p></div>
+<div class="card"><div class="icon">🗄️</div><h3>Database-Driven</h3><p>Translation JSON file নয়, database-এ থাকবে।</p></div>
+<div class="card"><div class="icon">♻️</div><h3>Cache Invalidation</h3><p>Language/translation update হলে related cache automatically clear হবে।</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="security">
+<div class="container">
+<div class="section-head"><div><h2>09. Security & Access Control</h2><span class="badge">Protection Layer</span></div><p>Role, subscription, tenant isolation, fingerprinting, rate limiting এবং session integrity-এর মাধ্যমে system security নিশ্চিত করা হবে।</p></div>
+<div class="security">
+<div><b>🔐 Role-Based Access Control</b><span>super_admin এবং business_client—দুই role; business_client শুধু নিজের business access করবে।</span></div>
+<div><b>💳 Subscription Gate</b><span>Active paid subscription ছাড়া public QR funnel ব্যবহার করা যাবে না।</span></div>
+<div><b>🛡️ IDOR Protection</b><span>Authenticated client-এর query নিজের business-এর scope-এর মধ্যে সীমাবদ্ধ থাকবে।</span></div>
+<div><b>🧬 Device Fingerprinting</b><span>IP + User-Agent + secret salt + business scope দিয়ে SHA-256 hash তৈরি হবে।</span></div>
+<div><b>🚦 Rate Limiting</b><span>Scanner funnel-এ প্রতি fingerprint 10 মিনিটে সর্বোচ্চ 30 requests।</span></div>
+<div><b>🧱 Security Headers</b><span>X-Frame-Options, X-Content-Type-Options, Referrer-Policy ও CSP headers।</span></div>
+<div><b>🔒 Session Integrity</b><span>প্রতিটি step-এ rating ও lead data validate হবে; tampering হলে re-entry প্রয়োজন হবে।</span></div>
+<div><b>👤 Laravel Breeze Auth</b><span>Login, register, password reset, email verification ও profile management।</span></div>
+<div><b>⚙️ Configurable Registration</b><span>Super Admin public registration on/off করতে পারবে।</span></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="architecture">
+<div class="container">
+<div class="section-head"><div><h2>10. Technical Architecture</h2><span class="badge">Laravel 11</span></div><p>Performance, caching, queues, observers, database indexes এবং timezone-aware analytics-এর উপর ভিত্তি করে architecture।</p></div>
+<div class="arch">
+<div class="arch-card"><h3>🏗️ Core Stack</h3><ul class="arch-list">
+<li><b>Laravel 11</b> — latest Laravel framework-এর উপর system তৈরি।</li>
+<li><b>Multi-QR per Business</b> — unlimited named QR touchpoints।</li>
+<li><b>Queued Jobs</b> — feedback email background queue-তে dispatch হবে।</li>
+<li><b>Model Observers</b> — cache invalidation ও cascade cleanup automate করবে।</li>
+</ul></div>
+<div class="arch-card"><h3>⚡ Performance & Reliability</h3><ul class="arch-list">
+<li><b>Performance Caching</b> — dashboard, reviews ও admin indexes cache করা হবে।</li>
+<li><b>Database Indexes</b> — review ও scan log-এর fast analytics query।</li>
+<li><b>Timezone-Aware Analytics</b> — business-এর configured timezone অনুসরণ করবে।</li>
+<li><b>Graceful QR Fallback</b> — Imagick না থাকলে external QR API fallback।</li>
+</ul></div>
+</div>
+
+<div style="margin-top:22px">
+<div class="section-head"><div><h2 style="font-size:25px">📦 Data Model Summary</h2></div></div>
+<div class="data-model">
+<div class="relationship"><b>User → Business</b><br>একজন user-এর একাধিক business।</div>
+<div class="relationship"><b>User → Subscription</b><br>User-এর subscription relationship।</div>
+<div class="relationship"><b>Subscription → Package</b><br>Subscription একটি package-এর সাথে যুক্ত।</div>
+<div class="relationship"><b>Business → BusinessQr</b><br>একটি business-এর একাধিক QR।</div>
+<div class="relationship"><b>Business → ReviewDestination</b><br>একাধিক review destination।</div>
+<div class="relationship"><b>Business → CustomerReview</b><br>Customer review গ্রহণ।</div>
+<div class="relationship"><b>Business → CustomerDevice</b><br>Device fingerprint tracking।</div>
+<div class="relationship"><b>Business → ScanLog</b><br>QR scan records।</div>
+<div class="relationship"><b>Business → ReviewChip</b><br>Pre-written review snippets।</div>
+<div class="relationship"><b>BusinessQr → ScanLog</b><br>কোন QR দিয়ে scan হয়েছে।</div>
+<div class="relationship"><b>BusinessQr → CustomerReview</b><br>কোন QR থেকে review এসেছে।</div>
+<div class="relationship"><b>Language → Translation</b><br>এক language-এর একাধিক translation।</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="cta">
+<div class="container">
+<div class="cta-inner">
+<h2>SunamQR — Review Journey, এক জায়গায়</h2>
+<p>প্রতিটি customer scan-কে public review অথবা privately handled feedback-এর একটি structured journey-তে রূপান্তর করার জন্য একটি সম্পূর্ণ QR-powered platform।</p>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="container">SunamQR — Complete Feature List · Bangla Edition</div>
+</footer>
+</body>
+</html>
